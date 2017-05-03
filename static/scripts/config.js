@@ -1,0 +1,1 @@
+var config = {'baseurl': './static/data', 'exps': [{'path': 'MOS', 'styles': ['all', 'q', 'remark'], 'info': '', 'type': 'MOS', 'files': ['13.wav', '9.wav', '3.wav', '18.wav', '19.wav', '15.wav', '17.wav', '1.wav', '24.wav', '20.wav', '23.wav', '22.wav', '12.wav', '11.wav', '10.wav', '4.wav', '5.wav', '7.wav', '16.wav', '2.wav', '8.wav', '21.wav', '6.wav', '14.wav']}]};

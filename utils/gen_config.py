@@ -1,15 +1,20 @@
 import os
+import sys
 
 if __name__ == "__main__":
-
-    json_str = "var config = "
-    json_data = {"baseurl":"data", "exps":[]}
     
-    for exp in os.listdir("./data"):
+    static_dir = './static'
+    if len(sys.argv) > 1:
+        static_url = sys.argv[1]
+    data_dir = os.path.join(static_dir, 'data')
+    json_str = "var config = "
+    json_data = {"baseurl":data_dir, "exps":[]}
+    
+    for exp in os.listdir(data_dir):
         exp_dic = {"path":exp}
         exp_dic["styles"] = []
         exp_dic["info"] = ""
-        exp_path = os.path.join("./data", exp)
+        exp_path = os.path.join(data_dir, exp)
         ###
         if exp[:4] == "sMOS":
             for stl in os.listdir(exp_path):
@@ -53,7 +58,8 @@ if __name__ == "__main__":
         json_data["exps"].append(exp_dic)
 
     json_str += str(json_data) + ";"
+    json_path = os.path.join(static_dir, 'scripts/config.js')
 
-    handle = open("./scripts/config.js","w")
+    handle = open(json_path, "w")
     handle.write(json_str)
     handle.close()
